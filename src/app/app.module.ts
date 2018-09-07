@@ -6,13 +6,9 @@ import { MyApp } from './app.component';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { MyTeamsPage } from '../pages/my-teams/my-teams';
-import { GamePage } from '../pages/game/game';
-import { TeamsPage } from '../pages/teams/teams';
-import { TeamDetailPage } from '../pages/team-detail/team-detail';
-import { TournamentsPage } from '../pages/tournaments/tournaments';
-import { StandingsPage } from '../pages/standings/standings';
-import { TeamHomePage } from '../pages/team-home/team-home';
+import { GamePage, TeamsPage, TeamDetailPage, TournamentsPage, StandingsPage, TeamHomePage, MyTeamsPage } from '../pages/pages';
+import { EliteApi } from '../shared/shared';
+import { Http, HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -27,6 +23,7 @@ import { TeamHomePage } from '../pages/team-home/team-home';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -43,7 +40,8 @@ import { TeamHomePage } from '../pages/team-home/team-home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    EliteApi,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }
