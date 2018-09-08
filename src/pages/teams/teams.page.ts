@@ -41,6 +41,7 @@ export class TeamsPage {
   }
 
   itemTapped(team) {
+    debugger;
     this.navCtrl.push(TeamHomePage, team);
   }
 }
