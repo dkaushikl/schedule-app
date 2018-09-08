@@ -10,9 +10,12 @@
       <ion-list-header>Navigate</ion-list-header>
       <button menuClose ion-item (click)="goToHome()">Home</button>
       <button menuClose ion-item (click)="goToTournaments()">Find a Tournaments</button>
-      <!-- <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button> -->
+    </ion-list>
+    <ion-list>
+      <ion-list-header>Favourites</ion-list-header>
+      <button menuClose ion-item *ngFor="let fav of favouriteTeams" (click)="goToTeam(fav)">
+        {{fav.team.name}}
+      </button>
     </ion-list>
   </ion-content>
 </ion-menu>
