@@ -5,18 +5,18 @@
   <ion-card>
     <ion-card-content>
       <ion-row>
-        <ion-col>
+        <ion-col col-6>
           <h2>Record: {{teamStanding?.wins}}-{{teamStanding?.losses}}</h2>
           <p>Coach: {{team?.coach}}</p>
         </ion-col>
-        <ion-col>
-          <!-- <button outline (click)="toggleFollow()" *ngIf="!isFollowing">
+        <ion-col col-6 text-right>
+          <button ion-button outline (click)="toggleFollow()" *ngIf="!isFollowing">
             <ion-icon name="star"></ion-icon>
             Add Favorite
           </button>
-          <button (click)="toggleFollow()" *ngIf="isFollowing">
+          <button ion-button (click)="toggleFollow()" *ngIf="isFollowing">
             <ion-icon name="star"></ion-icon>
-          </button> -->
+          </button>
         </ion-col>
       </ion-row>
       <ion-item>

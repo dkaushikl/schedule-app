@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import * as _ from 'lodash';
 import { EliteApi } from '../../shared/shared';
 import { GamePage } from '../game/game.page';
@@ -17,13 +17,12 @@ export class TeamDetailPage {
   private tourneyData: any;
   public teamStanding: any = {};
   public useDateFilter = false;
-
+  public isFollowing = false;
   constructor(
     private nav: NavController,
     private navParams: NavParams,
-    private eliteApi: EliteApi) {
+    private eliteApi: EliteApi, public alertController: AlertController) {
     this.team = this.navParams.data;
-    console.log(this.team);
     this.tourneyData = this.eliteApi.getCurrentTourney();
 
     this.games = _.chain(this.tourneyData.games)
@@ -78,5 +77,26 @@ export class TeamDetailPage {
 
   getScoreDisplayBadgeClass(game) {
     return game.scoreDisplay.indexOf('W:') === 0 ? 'primary' : 'danger';
+  }
+
+  toggleFollow() {
+    if (this.isFollowing) {
+      let confirm = this.alertController.create({
+        title: 'Unfollow?',
+        message: 'Are you sure you want to unfollow?',
+        buttons: [
+          {
+            text: 'Yes',
+            handler: () => {
+              this.isFollowing = false;
+            },
+          },
+          { text: 'No' }
+        ]
+      });
+      confirm.present();
+    } else {
+      this.isFollowing = true;
+    }
   }
 }
