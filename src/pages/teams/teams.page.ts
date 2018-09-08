@@ -16,9 +16,6 @@ export class TeamsPage {
 
   constructor(private loadingController: LoadingController,
     public navCtrl: NavController, public navParams: NavParams, public eliteApi: EliteApi) {
-  }
-
-  ionViewDidLoad() {
     let selectedTourney = this.navParams.data;
 
     let loader = this.loadingController.create({
@@ -41,7 +38,6 @@ export class TeamsPage {
   }
 
   itemTapped(team) {
-    debugger;
     this.navCtrl.push(TeamHomePage, team);
   }
 }

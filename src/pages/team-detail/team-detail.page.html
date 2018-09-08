@@ -1,24 +1,23 @@
 <ion-header>
   <ion-navbar></ion-navbar>
 </ion-header>
-
-<ion-content padding>
+<ion-content>
   <ion-card>
     <ion-card-content>
       <ion-row>
-        <ion-col width-50>
+        <ion-col>
           <h2>Record: {{teamStanding?.wins}}-{{teamStanding?.losses}}</h2>
           <p>Coach: {{team?.coach}}</p>
         </ion-col>
-        <!-- <ion-col width-50 text-right>
-          <button outline (click)="toggleFollow()" *ngIf="!isFollowing">
+        <ion-col>
+          <!-- <button outline (click)="toggleFollow()" *ngIf="!isFollowing">
             <ion-icon name="star"></ion-icon>
             Add Favorite
           </button>
           <button (click)="toggleFollow()" *ngIf="isFollowing">
             <ion-icon name="star"></ion-icon>
-          </button>
-        </ion-col> -->
+          </button> -->
+        </ion-col>
       </ion-row>
     </ion-card-content>
   </ion-card>
