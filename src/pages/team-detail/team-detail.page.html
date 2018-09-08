@@ -20,10 +20,10 @@
         </ion-col>
       </ion-row>
       <ion-item>
-        <ion-label>
-          Date Filter:
-        </ion-label>
-        <ion-datetime displayFormat="M/D/YYYY" pickerFormat="M/D/YYYY" [(ngModel)]="dateFilter" (ionChange)="dateChanged()"></ion-datetime>
+        <ion-label> Date Filter: </ion-label>
+        <ion-toggle [(ngModel)]="useDateFilter" (ionChange)="dateChanged()"></ion-toggle>
+        <ion-datetime displayFormat="M/D/YYYY" pickerFormat="M/D/YYYY" [(ngModel)]="dateFilter" (ionChange)="dateChanged()"
+        [(disabled)]="!useDateFilter"></ion-datetime>
       </ion-item>
     </ion-card-content>
   </ion-card>
