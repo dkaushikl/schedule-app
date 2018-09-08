@@ -22,11 +22,9 @@ export class EliteApi {
     getTournamentData(tourneyId, forceRefresh: boolean = false) : Observable<any> {
         if (!forceRefresh && this.tourneyData[tourneyId]) {
             this.currentTourney = this.tourneyData[tourneyId];
-            console.log('**no need to make HTTP call, just return the data');
             return Observable.of(this.currentTourney);
         }
 
-        console.log('**about to make HTTP call');
         return this.http.get(`${this.baseUrl}/tournaments-data/${tourneyId}.json`)
             .map(response => {
                 this.tourneyData[tourneyId] = response.json();
